@@ -4,13 +4,13 @@ import Users from "./components/Users";
 import AddUser from "./components/AddUser";
 import axios from "axios";
 
-const baseUrl = "https://reqres.in/api/users?page=2"
+const baseUrl = "https://jsonplaceholder.typicode.com/posts"
 class App extends React.Component{
     constructor(props) {
         super(props);
 
         axios.get(baseUrl).then(res => {
-            this.setState({users: res.data.data})
+            this.setState({users: res.data})
         })
 
         this.state = {

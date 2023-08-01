@@ -5,30 +5,24 @@ class AddUser extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            first_name: "",
-            last_name: "",
-            email: "",
-            age: 1,
-            isHappy: false
+            userId: "",
+            id: "",
+            title: "",
+            body: "",
         }
     }
     render() {
         return (
             <form ref={el => {this.myFrom = el}}>
-                <input placeholder={"Name"} onChange={el => this.setState({first_name: el.target.value})}/>
-                <input placeholder={"LastName"} onChange={el => this.setState({last_name: el.target.value})}/>
-                <textarea placeholder={"Biography"} onChange={el => this.setState({bio: el.target.value})}/>
-                <input placeholder={"Age"} onChange={el => this.setState({age: el.target.value})}/>
-                <label htmlFor={"isHappy"} >Счастлив?</label>
-                <input type={"checkbox"} id={"isHappy"} onChange={el => this.setState({isHappy: el.target.checked})}/>
+                <input placeholder={"UserId"} onChange={el => this.setState({userId: el.target.value})}/>
+                <input placeholder={"Title"} onChange={el => this.setState({title: el.target.value})}/>
+                <textarea placeholder={"Body"} onChange={el => this.setState({body: el.target.value})}/>
                 <button type={"button"} onClick={() => {
                     this.myFrom.reset()
                     this.userAdd = {
-                        first_name: this.state.first_name,
-                        last_name: this.state.last_name,
-                        email: this.state.email,
-                        age: this.state.age,
-                        isHappy: this.state.isHappy
+                        userId: this.state.userId,
+                        title: this.state.title,
+                        body: this.state.body,
                     }
                     if (this.props.user){
                         this.userAdd.id = this.props.user.id
